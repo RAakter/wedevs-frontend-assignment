@@ -25,8 +25,8 @@ const routes = [
     component: Register,
   },
   {
-    path: "/orders",
-    name: "orders",
+    path: "/profile",
+    name: "profile",
     component: Profile,
   },
   {
@@ -35,10 +35,26 @@ const routes = [
     component: BoardAdmin,
   },
   {
-    path: "/user",
-    name: "user",
+    path: "/orders",
+    name: "orders",
     component: BoardUser,
   },
+  {
+    path: "/",
+    alias: "/products",
+    name: "products",
+    component: () => import("./components/ProductList")
+  },
+  {
+    path: "/products/:id",
+    name: "product-details",
+    component: () => import("./components/EditProduct")
+  },
+  {
+    path: "/add",
+    name: "add",
+    component: () => import("./components/AddProduct")
+  }
 ];
 
 const router = createRouter({

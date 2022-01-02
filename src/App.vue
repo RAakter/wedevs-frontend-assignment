@@ -10,8 +10,14 @@
         <li v-if="showAdminBoard">
           <router-link to="/admin">Admin Board</router-link>
         </li>
+        <li v-if="showAdminBoard">
+          <router-link to="/products" class="nav-link">Products</router-link>
+        </li>
+        <li v-if="showAdminBoard">
+          <router-link to="/add" class="nav-link">Add Product</router-link>
+        </li>
         <li>
-          <router-link v-if="currentUser" to="/user">User</router-link>
+          <router-link v-if="currentUser" to="/orders">Orders</router-link>
         </li>
 
         <div v-if="!currentUser">
@@ -41,7 +47,7 @@
       </div>
     </div>
     <div>
-      <router-view />
+      <router-view/>
     </div>
   </div>
 </template>
@@ -53,16 +59,17 @@ export default {
       return this.$store.state.auth.user;
     },
     showAdminBoard() {
-      if (this.currentUser && this.currentUser.data.is_admin) {
-        return this.currentUser.data.is_admin.includes(1);
+      if (this.currentUser && this.currentUser.data.is_admin == 1) {
+        return true;
       }
 
       return false;
     },
+    
   },
   methods: {
     logOut() {
-      this.$store.dispatch('logout');
+      this.$store.dispatch('auth/logout');
       this.$router.push('login');
     }
   }

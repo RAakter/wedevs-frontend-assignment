@@ -1,5 +1,5 @@
 <template>
-   <h3>{{ content }} ADMIN</h3>
+   <h3>{{ content }}</h3>
 </template>
 
 <script>
