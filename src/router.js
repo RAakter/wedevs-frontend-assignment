@@ -2,6 +2,9 @@ import { createWebHistory, createRouter } from "vue-router";
 import Home from "./components/Home.vue";
 import Login from "./components/Login.vue";
 import Register from "./components/Register.vue";
+import SingleProduct from './components/SingleProduct'
+import Checkout from './components/Checkout'
+import Confirmation from './components/Confirmation'
 const Profile = () => import("./components/Profile.vue")
 const BoardAdmin = () => import("./components/BoardAdmin.vue")
 const BoardUser = () => import("./components/BoardUser.vue")
@@ -23,6 +26,22 @@ const routes = [
   {
     path: "/register",
     component: Register,
+  },
+  {
+    path: '/products/:id',
+    name: 'single-products',
+    component: SingleProduct
+  },
+  {
+    path: '/confirmation',
+    name: 'confirmation',
+    component: Confirmation
+  },
+  {
+    path: '/checkout/:id',
+    name: 'checkout',
+    component: Checkout,
+    props: (route) => ({ pid: route.query.pid })
   },
   {
     path: "/profile",

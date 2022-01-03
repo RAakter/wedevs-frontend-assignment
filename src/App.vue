@@ -1,20 +1,23 @@
 <template>
   <div id="app">
     <div class="topnav">
-      <a href="/">weDevs</a>
+      <a href="#">weDevs</a>
         <li>
           <router-link to="/home">
             <font-awesome-icon icon="home" /> Home
           </router-link>
         </li>
-        <li v-if="showAdminBoard">
+        <!-- <li v-if="showAdminBoard">
           <router-link to="/admin">Admin Board</router-link>
-        </li>
+        </li> -->
         <li v-if="showAdminBoard">
           <router-link to="/products" class="nav-link">Products</router-link>
         </li>
         <li v-if="showAdminBoard">
           <router-link to="/add" class="nav-link">Add Product</router-link>
+        </li>
+        <li>
+          <router-link v-if="showAdminBoard" to="/order/list">Order list</router-link>
         </li>
         <li>
           <router-link v-if="currentUser" to="/orders">Orders</router-link>

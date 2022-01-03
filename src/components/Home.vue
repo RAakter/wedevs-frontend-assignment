@@ -3,6 +3,7 @@
       <h1>Our Products</h1>
       <div class="row">
         <div class="column" v-for="(product,index) in products" :key="index">
+          <router-link :to="{ path: '/products/'+product.id}">
           <div class="card">
             <img :src="product.image" :alt="product.name" style="width:100%">
             <h3><span v-html="product.name"></span></h3>
@@ -10,8 +11,9 @@
             <p id="quantity" class="stock" v-if="product.quantity > 0">Only {{product.quantity}} items left in stock!</p>
             <p class="outofstock" v-else>Out of Stock</p>
             <p><span v-html="product.description.substring(0,30)+'..'"></span></p>
-            <p><button>Buy Now</button></p>
+            <p><button>View</button></p>
           </div>
+           </router-link>
         </div>
       </div>
     </div>

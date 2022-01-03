@@ -46,7 +46,7 @@
           <label><strong>Quantity:</strong></label> {{ currentProduct.quantity }}
         </div>
         <div>
-          <label><strong>Image:</strong></label> <img :src="currentProduct.image" :alt="currentProduct.name">
+          <label><strong>Image:</strong></label> <img class="show-image" :src="currentProduct.image" :alt="currentProduct.name">
         </div>
         <router-link :to="'/products/' + currentProduct.id" class="badge badge-warning">Edit</router-link>
       </div>
@@ -129,4 +129,8 @@ export default {
   max-width: 750px;
   margin: auto;
 }
+.show-image{
+        height: 200px;
+        width: 200px;
+    }
 </style>
